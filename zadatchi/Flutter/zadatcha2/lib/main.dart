@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zadatch1/second_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Zadatcha1',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,51 +25,39 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: FirstScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  
-  final String title;
+class FirstScreen extends StatefulWidget {
+
+
+
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<FirstScreen> createState() => _FirstScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  List element = ['Jhon','Valeria','Hector','Dima','Olegovitch','Kozlov','Vania','Kiril','Vitalic','Ekaterina'];
+class _FirstScreenState extends State<FirstScreen> {
+
+
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      appBar: AppBar(
-      
-        title: Text(widget.title),
-      ),
-      body:  ListView.builder(
-         itemCount: element.length,
-         itemBuilder:(context,index){
-          return Column(
 
-            children: [
-              SizedBox(height: 10.0,),
-              Container(
-                  child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                    children: [Text('$index '), Text('${element[index]} ')],),
-                ),
-             const Divider(
-                height: 20.0,
-                thickness:5,
-                indent: 1,
-                endIndent: 1,
-              )
-            ],
-          );
-         },
-      ),
+    return Scaffold(
+
+      body:Container(
+        color: Colors.blue,
+        child: Center(
+
+            child: FlatButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SecondScreen()));
+            },
+              child:Text("На Экран 2",style: TextStyle(color: Colors.white),) ,)
+
+        ),
+      )
     );
   }
 }
